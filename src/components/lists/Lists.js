@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Consumer} from '../../context'
 import Spinner from '../layout/Spinner'
-import List from '../lists/List'
+import Movie from './Movie'
 
  class Lists extends Component {
     render() {
@@ -14,10 +14,10 @@ import List from '../lists/List'
                    } else {
                        return (
                            <React.Fragment>
-                               <h3 className="text-center mb-4">{heading}</h3>
+                               <h3 className="text-center mb-4 text-white">{heading}</h3>
                            <div className="row">
                                 {movie_list.map(item => (                                                            
-                                    <List key={item.show.id} list={item}/>
+                                    <Movie key={item.show.id} movie={item}/>
                                 ))}
                            </div>
                            </React.Fragment>
