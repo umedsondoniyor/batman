@@ -15,8 +15,8 @@ const List = (props) => {
                     <div className="col-md-8">
                         <div className="card-body">
                             <h5 className="card-title"><i className="fa fa-film"></i> {list.show.name}</h5>
-                            <p className="card-text">{list.show.type} {list.show.premiered}</p>
-                            <p className="card-text">{list.show.type}</p>
+                            <p className="card-text"><strong>Type:</strong> {list.show.type} <strong>Released in:</strong> {list.show.premiered}</p>
+                            <p className="card-text"><strong>Rating: </strong>{list.show.rating.average}</p>
 
                             <p className="card-text"><small className="text-muted">{list.show.genres}</small></p>
                         </div>
