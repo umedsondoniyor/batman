@@ -10,7 +10,7 @@ export class Provider extends Component {
     }
 
     componentDidMount(){
-        axios.get(`http://api.tvmaze.com/search/shows?q=:batman&apikey=${process.env.REACT_APP_TVMAZE_KEY}`)
+        axios.get(`https://api.tvmaze.com/search/shows?q=:batman&apikey=${process.env.REACT_APP_TVMAZE_KEY}`)
             .then(res => {
                 // console.log(res.data)
                 this.setState({movie_list: res.data})
