@@ -14,12 +14,12 @@ import Movie from './Movie'
                    } else {
                        return (
                            <React.Fragment>
-                               <h3 className="text-center mb-4 text-yellow">{heading}</h3>
-                           <div className="row">
-                                {movie_list.map(item => (                                                            
-                                    <Movie key={item.show.id} movie={item}/>
-                                ))}
-                           </div>
+                            <h3 className="text-center mb-4 text-yellow">{heading}</h3>
+                            <div className="row">
+                                    {movie_list.map(item => (                                                            
+                                        <Movie key={item.show.id} movie={item}/>
+                                    ))}
+                            </div>
                            </React.Fragment>
                        )
                    }
