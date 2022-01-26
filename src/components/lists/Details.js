@@ -4,7 +4,7 @@ import Spinner from "../layout/Spinner";
 
 class Details extends Component {
   state = {
-    more_details: undefined
+    more_details: undefined,
   };
 
   componentDidMount() {
@@ -13,11 +13,11 @@ class Details extends Component {
     if (!more_details) {
       axios
         .get(`http://api.tvmaze.com/shows/${this.props.id}`)
-        .then(res => {
+        .then((res) => {
           this.setState({ more_details: res.data });
           handleDetailsFetch(res.data);
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
     } else {
       this.setState({ more_details });
     }
@@ -32,9 +32,11 @@ class Details extends Component {
           <div className="card text-center bg-dark text-white border-warning mt-3">
             <div className="card-body">
               <div
-                dangerouslySetInnerHTML={{__html: this.state.more_details.summary}}
+                dangerouslySetInnerHTML={{
+                  __html: this.state.more_details.summary,
+                }}
               ></div>
-            </div>        
+            </div>
           </div>
         </React.Fragment>
       );

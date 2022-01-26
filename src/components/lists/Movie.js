@@ -1,32 +1,44 @@
-import React,{Component} from 'react'
-import Moment from 'react-moment'
-import Details from "./Details"
+import React, { Component } from "react";
+import Moment from "react-moment";
+import Details from "./Details";
 
 class Movie extends Component {
-   state = {
-       detailsRequested:false,
-       more_details:undefined
-   };
+  state = {
+    detailsRequested: false,
+    more_details: undefined,
+  };
 
-   handleDetailsRequest = () =>{
-       this.setState(prevState => ({
-           detailsRequested: !prevState.detailsRequested
-       }));
-   };
+  handleDetailsRequest = () => {
+    this.setState((prevState) => ({
+      detailsRequested: !prevState.detailsRequested,
+    }));
+  };
 
-   handleDetailsFetch = more_details => {
-       this.setState({more_details});
-   };
+  handleDetailsFetch = (more_details) => {
+    this.setState({ more_details });
+  };
 
-   render(){
-    const {movie} = this.props;
+  render() {
+    const { movie } = this.props;
     const { detailsRequested, more_details } = this.state;
     return (
       <div className="col-md-12">
         <div className="card mb-3 bg-dark text-white border-warning text-center text-yellow">
           <div className="row no-gutters">
             <div className="col-md-4">
-              <img src={movie.show.image.medium} className="card-img" alt="" />
+              {movie.show.image ? (
+                <img
+                  src={movie.show.image.medium}
+                  className="card-img"
+                  alt=""
+                />
+              ) : (
+                <img
+                  src="https://avatars.githubusercontent.com/u/8350817?v=4"
+                  className="card-img"
+                  alt="batman"
+                />
+              )}
             </div>
             <div className="col-md-8">
               <div className="card-body">
@@ -44,7 +56,7 @@ class Movie extends Component {
                   <strong>Rating: </strong>
                   {movie.show.rating.average}
                 </p>
-                
+
                 {detailsRequested && (
                   <Details
                     id={movie.show.id}
@@ -52,21 +64,20 @@ class Movie extends Component {
                     handleDetailsFetch={this.handleDetailsFetch}
                   />
                 )}
-              </div>  
+              </div>
               <div className="card-footer">
-              <button
+                <button
                   className="btn btn-secondary btn-block text-yellow font-weight-bold"
                   onClick={this.handleDetailsRequest}
                 >
                   {detailsRequested ? "Hide" : "View More"}
                 </button>
               </div>
-            </div>            
+            </div>
           </div>
         </div>
       </div>
     );
   }
 }
-
-export default Movie
+export default Movie;

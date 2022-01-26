@@ -1,10 +1,7 @@
 import React from "react";
-
 import Navbar from "./components/layout/Navbar";
 import Index from "./components/layout/Index";
-
 import { Provider } from "./context";
-
 import "./App.scss";
 
 function App() {
